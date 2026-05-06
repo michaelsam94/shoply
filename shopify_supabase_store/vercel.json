@@ -1,0 +1,5 @@
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+  "buildCommand": "bash scripts/build_web.sh",
+  "outputDirectory": "build/web"
+}
