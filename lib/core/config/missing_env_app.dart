@@ -18,8 +18,7 @@ class MissingEnvApp extends StatelessWidget {
               style: const TextStyle(fontSize: 15, height: 1.5),
               children: [
                 const TextSpan(
-                  text:
-                      'Supabase was not configured at build time. '
+                  text: 'Supabase was not configured at build time. '
                       'SHOPIFY_* and SUPABASE_* are injected with ',
                 ),
                 const TextSpan(
@@ -35,8 +34,7 @@ class MissingEnvApp extends StatelessWidget {
                   style: TextStyle(fontFamily: 'monospace'),
                 ),
                 const TextSpan(
-                  text:
-                      'Example:\n  bash scripts/run_dev.sh -d chrome\n'
+                  text: 'Example:\n  bash scripts/run_dev.sh -d chrome\n'
                       '  bash scripts/run_dev.sh -d macos\n\n'
                       'Ensure ',
                 ),
@@ -98,8 +96,7 @@ class PlaceholderSupabaseApp extends StatelessWidget {
                   style: TextStyle(fontFamily: 'monospace'),
                 ),
                 const TextSpan(
-                  text:
-                      ').\n\n'
+                  text: ').\n\n'
                       'That hostname does not exist, so sign-in fails with '
                       '"Failed host lookup".\n\n'
                       '1. Open Supabase → Project Settings → API.\n'
@@ -124,8 +121,7 @@ class PlaceholderSupabaseApp extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const TextSpan(
-                  text:
-                      ' API key.\n'
+                  text: ' API key.\n'
                       '3. Put them in ',
                 ),
                 const TextSpan(
@@ -133,8 +129,7 @@ class PlaceholderSupabaseApp extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const TextSpan(
-                  text:
-                      ' as SUPABASE_URL and SUPABASE_ANON_KEY.\n'
+                  text: ' as SUPABASE_URL and SUPABASE_ANON_KEY.\n'
                       '4. Regenerate defines and ',
                 ),
                 const TextSpan(

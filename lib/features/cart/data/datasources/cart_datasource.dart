@@ -21,7 +21,8 @@ class CartDatasource {
           totalAmount: 0,
           currencyCode: 'USD',
         );
-    final existingIndex = current.lines.indexWhere((line) => line.variantId == variantId);
+    final existingIndex =
+        current.lines.indexWhere((line) => line.variantId == variantId);
     final updatedLines = [...current.lines];
     if (existingIndex == -1) {
       updatedLines.add(
@@ -47,7 +48,8 @@ class CartDatasource {
         imageUrl: existing.imageUrl,
       );
     }
-    final total = updatedLines.fold<double>(0, (sum, line) => sum + (line.price * line.quantity));
+    final total = updatedLines.fold<double>(
+        0, (sum, line) => sum + (line.price * line.quantity));
     _cart = CartEntity(
       id: current.id,
       checkoutUrl: current.checkoutUrl,
@@ -61,8 +63,10 @@ class CartDatasource {
   Future<void> removeLine(String lineId) async {
     final current = _cart;
     if (current == null) return;
-    final updatedLines = current.lines.where((line) => line.id != lineId).toList();
-    final total = updatedLines.fold<double>(0, (sum, line) => sum + (line.price * line.quantity));
+    final updatedLines =
+        current.lines.where((line) => line.id != lineId).toList();
+    final total = updatedLines.fold<double>(
+        0, (sum, line) => sum + (line.price * line.quantity));
     _cart = CartEntity(
       id: current.id,
       checkoutUrl: current.checkoutUrl,
@@ -72,22 +76,27 @@ class CartDatasource {
     );
   }
 
-  Future<void> updateLine({required String lineId, required int quantity}) async {
+  Future<void> updateLine(
+      {required String lineId, required int quantity}) async {
     final current = _cart;
     if (current == null) return;
-    final updatedLines = current.lines.map((line) {
-      if (line.id != lineId) return line;
-      return CartLineEntity(
-        id: line.id,
-        quantity: quantity,
-        variantId: line.variantId,
-        productTitle: line.productTitle,
-        variantTitle: line.variantTitle,
-        price: line.price,
-        imageUrl: line.imageUrl,
-      );
-    }).where((line) => line.quantity > 0).toList();
-    final total = updatedLines.fold<double>(0, (sum, line) => sum + (line.price * line.quantity));
+    final updatedLines = current.lines
+        .map((line) {
+          if (line.id != lineId) return line;
+          return CartLineEntity(
+            id: line.id,
+            quantity: quantity,
+            variantId: line.variantId,
+            productTitle: line.productTitle,
+            variantTitle: line.variantTitle,
+            price: line.price,
+            imageUrl: line.imageUrl,
+          );
+        })
+        .where((line) => line.quantity > 0)
+        .toList();
+    final total = updatedLines.fold<double>(
+        0, (sum, line) => sum + (line.price * line.quantity));
     _cart = CartEntity(
       id: current.id,
       checkoutUrl: current.checkoutUrl,

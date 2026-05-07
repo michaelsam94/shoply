@@ -22,8 +22,9 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   Future<void> _openCheckout(List<CartLineEntity> lines) async {
     setState(() => _checkoutBusy = true);
     try {
-      final url =
-          await ref.read(shopifyCheckoutRemoteProvider).createCheckoutUrl(lines);
+      final url = await ref
+          .read(shopifyCheckoutRemoteProvider)
+          .createCheckoutUrl(lines);
       if (!mounted) return;
       await context.pushNamed(
         AppRoutes.checkout,
@@ -71,8 +72,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                           '\$${item.price.toStringAsFixed(2)} x ${item.quantity}',
                         ),
                         trailing: IconButton(
-                          onPressed: () =>
-                              notifier.removeItem(lineId: item.id),
+                          onPressed: () => notifier.removeItem(lineId: item.id),
                           icon: const Icon(Icons.delete_outline),
                         ),
                       );

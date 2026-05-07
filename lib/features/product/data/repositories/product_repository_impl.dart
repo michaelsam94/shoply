@@ -13,8 +13,8 @@ class ProductRepositoryImpl implements ProductRepository {
 
   @override
   Future<
-      Either<Failure,
-          (List<ProductEntity> products, bool hasNextPage, String? cursor)>>
+          Either<Failure,
+              (List<ProductEntity> products, bool hasNextPage, String? cursor)>>
       getProducts({
     String? cursor,
     String? query,

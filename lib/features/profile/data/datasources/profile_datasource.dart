@@ -16,7 +16,9 @@ class ProfileDatasource {
   Future<ProfileModel?> updateProfile({required String fullName}) async {
     final user = _client.auth.currentUser;
     if (user == null) return null;
-    await _client.auth.updateUser(UserAttributes(data: {'full_name': fullName}));
-    return ProfileModel(id: user.id, email: user.email ?? '', fullName: fullName);
+    await _client.auth
+        .updateUser(UserAttributes(data: {'full_name': fullName}));
+    return ProfileModel(
+        id: user.id, email: user.email ?? '', fullName: fullName);
   }
 }

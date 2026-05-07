@@ -12,12 +12,7 @@ class AppTheme {
         ),
         scaffoldBackgroundColor: AppColors.background,
         textTheme: GoogleFonts.poppinsTextTheme(),
-        cardTheme: CardThemeData(
-          elevation: 2,
-          color: AppColors.surface,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        ),
+        cardColor: AppColors.surface,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
@@ -42,12 +37,7 @@ class AppTheme {
           brightness: Brightness.dark,
         ),
         scaffoldBackgroundColor: AppColors.darkBackground,
-        cardTheme: CardThemeData(
-          elevation: 2,
-          color: AppColors.darkSurface,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        ),
+        cardColor: AppColors.darkSurface,
         textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),

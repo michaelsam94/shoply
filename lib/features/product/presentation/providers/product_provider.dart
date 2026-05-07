@@ -27,14 +27,14 @@ final getProductsUseCaseProvider = Provider<GetProductsUseCase>((ref) {
 
 final productListProvider =
     AsyncNotifierProvider<ProductListNotifier, List<ProductEntity>>(
-      ProductListNotifier.new,
-    );
+  ProductListNotifier.new,
+);
 
 final productDetailProvider =
     FutureProvider.family<ProductEntity, String>((ref, id) async {
-      final result = await ref.watch(productRepositoryProvider).getProductById(id);
-      return result.fold((failure) => throw Exception(failure.message), (p) => p);
-    });
+  final result = await ref.watch(productRepositoryProvider).getProductById(id);
+  return result.fold((failure) => throw Exception(failure.message), (p) => p);
+});
 
 class ProductListNotifier extends AsyncNotifier<List<ProductEntity>> {
   @override

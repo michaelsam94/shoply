@@ -8,7 +8,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app.dart';
 import 'core/config/env.dart';
-import 'core/config/missing_env_app.dart' show MissingEnvApp, PlaceholderSupabaseApp;
+import 'core/config/missing_env_app.dart'
+    show MissingEnvApp, PlaceholderSupabaseApp;
 import 'core/logging/app_logger.dart';
 import 'core/logging/riverpod_exception_observer.dart';
 

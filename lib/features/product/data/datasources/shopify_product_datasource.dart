@@ -47,12 +47,14 @@ class ShopifyProductDatasource {
       throw ServerException('Shopify GraphQL errors: ${payload['errors']}');
     }
 
-    final productData = payload['data']?['products'] as Map<String, dynamic>? ?? {};
+    final productData =
+        payload['data']?['products'] as Map<String, dynamic>? ?? {};
     final edges = (productData['edges'] as List<dynamic>? ?? []);
     final pageInfo = productData['pageInfo'] as Map<String, dynamic>? ?? {};
     return (
       edges
-          .map((edge) => ProductModel.fromShopifyNode(edge['node'] as Map<String, dynamic>))
+          .map((edge) => ProductModel.fromShopifyNode(
+              edge['node'] as Map<String, dynamic>))
           .toList(),
       pageInfo['hasNextPage'] == true,
       pageInfo['endCursor']?.toString(),

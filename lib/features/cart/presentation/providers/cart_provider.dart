@@ -13,7 +13,8 @@ import '../../domain/usecases/get_cart_usecase.dart';
 import '../../domain/usecases/remove_from_cart_usecase.dart';
 import '../../domain/usecases/update_cart_item_usecase.dart';
 
-final cartDatasourceProvider = Provider<CartDatasource>((_) => CartDatasource());
+final cartDatasourceProvider =
+    Provider<CartDatasource>((_) => CartDatasource());
 
 final shopifyCheckoutRemoteProvider = Provider<ShopifyCheckoutRemote>((ref) {
   final env = ref.watch(appEnvProvider);
@@ -38,7 +39,8 @@ final updateCartItemUseCaseProvider = Provider<UpdateCartItemUseCase>(
   (ref) => UpdateCartItemUseCase(ref.watch(cartRepositoryProvider)),
 );
 
-final cartProvider = StateNotifierProvider<CartNotifier, AsyncValue<CartEntity?>>(
+final cartProvider =
+    StateNotifierProvider<CartNotifier, AsyncValue<CartEntity?>>(
   (ref) => CartNotifier(ref),
 );
 
@@ -64,7 +66,8 @@ class CartNotifier extends StateNotifier<AsyncValue<CartEntity?>> {
 
   Future<void> createCart() async => initCart();
 
-  Future<void> updateItem({required String lineId, required int quantity}) async {
+  Future<void> updateItem(
+      {required String lineId, required int quantity}) async {
     final ref = _ref;
     if (ref == null) return;
     state = const AsyncValue.loading();
@@ -94,7 +97,8 @@ class CartNotifier extends StateNotifier<AsyncValue<CartEntity?>> {
     await initCart();
   }
 
-  Future<void> addItem({required String variantId, required int quantity}) async {
+  Future<void> addItem(
+      {required String variantId, required int quantity}) async {
     final ref = _ref;
     if (ref == null) {
       final current = state.valueOrNull;
@@ -165,9 +169,8 @@ class CartNotifier extends StateNotifier<AsyncValue<CartEntity?>> {
       variantId = product.id;
     } else {
       final available = product.variants.where((v) => v.availableForSale);
-      variantId = available.isNotEmpty
-          ? available.first.id
-          : product.variants.first.id;
+      variantId =
+          available.isNotEmpty ? available.first.id : product.variants.first.id;
     }
     return _addCommon(
       variantId: variantId,

@@ -56,8 +56,9 @@ class ProductModel extends ProductEntity {
         return ProductVariantEntity(
           id: variant['id']?.toString() ?? '',
           title: variant['title']?.toString() ?? '',
-          price: double.tryParse(variant['price']?['amount']?.toString() ?? '0') ??
-              0,
+          price:
+              double.tryParse(variant['price']?['amount']?.toString() ?? '0') ??
+                  0,
           availableForSale: variant['availableForSale'] == true,
         );
       }).toList(),

@@ -49,7 +49,8 @@ class _CheckoutWebviewScreenState extends ConsumerState<CheckoutWebviewScreen> {
                 ref.read(cartProvider.notifier).clearCart();
                 context.goNamed(AppRoutes.home);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Checkout completed successfully')),
+                  const SnackBar(
+                      content: Text('Checkout completed successfully')),
                 );
               });
             }
