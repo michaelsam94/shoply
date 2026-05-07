@@ -11,38 +11,38 @@ class MissingEnvApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Configuration required')),
-        body: Padding(
-          padding: const EdgeInsets.all(24),
+        body: const Padding(
+          padding: EdgeInsets.all(24),
           child: SelectableText.rich(
             TextSpan(
-              style: const TextStyle(fontSize: 15, height: 1.5),
+              style: TextStyle(fontSize: 15, height: 1.5),
               children: [
-                const TextSpan(
+                TextSpan(
                   text: 'Supabase was not configured at build time. '
                       'SHOPIFY_* and SUPABASE_* are injected with ',
                 ),
-                const TextSpan(
+                TextSpan(
                   style: TextStyle(fontWeight: FontWeight.bold),
                   text: '--dart-define',
                 ),
-                const TextSpan(
+                TextSpan(
                   text: ' (or use the helper script).\n\n'
                       'Run from the project root:\n\n',
                 ),
-                const TextSpan(
+                TextSpan(
                   text: '  bash scripts/run_dev.sh -d <device_id>\n\n',
                   style: TextStyle(fontFamily: 'monospace'),
                 ),
-                const TextSpan(
+                TextSpan(
                   text: 'Example:\n  bash scripts/run_dev.sh -d chrome\n'
                       '  bash scripts/run_dev.sh -d macos\n\n'
                       'Ensure ',
                 ),
-                const TextSpan(
+                TextSpan(
                   text: '.env',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                const TextSpan(
+                TextSpan(
                   text: ' exists with SUPABASE_URL and SUPABASE_ANON_KEY '
                       '(publishable key).\n\n'
                       'Current compile-time values:\n'
@@ -50,12 +50,12 @@ class MissingEnvApp extends StatelessWidget {
                 ),
                 TextSpan(
                   text: '${Env.supabaseUrl.length}\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                const TextSpan(text: '  SUPABASE_ANON_KEY length: '),
+                TextSpan(text: '  SUPABASE_ANON_KEY length: '),
                 TextSpan(
                   text: '${Env.supabaseAnonKey.length}\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
